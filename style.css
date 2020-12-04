@@ -36,6 +36,12 @@ button {
   margin: 5px 0;
 }
 
+.main-button {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
 button:hover {
   filter: brightness(95%);
 }
