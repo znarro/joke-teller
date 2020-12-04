@@ -1,6 +1,7 @@
 const playButton = document.getElementById('play-button');
 const repeatButton = document.getElementById('repeat-btn');
 const showButton = document.getElementById('show-btn');
+const textJoke = document.getElementById('text-joke');
 const audioElement = document.getElementById('audio');
 // Need this in global for showButton to work
 let joke = '';
@@ -60,5 +61,8 @@ audio.addEventListener('ended', toggleButton);
 repeatButton.addEventListener('click', () => audio.play());
 
 showButton.addEventListener('click', () => {
-  console.log(joke);
+  if (joke) {
+    textJoke.textContent = joke;
+    textJoke.style.display = 'block';
+  }
 });
