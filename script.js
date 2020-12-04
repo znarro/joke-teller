@@ -1,4 +1,5 @@
-const button = document.getElementById('button');
+const playButton = document.getElementById('play-button');
+const repeatButton = document.getElementById('repeat-btn');
 const audioElement = document.getElementById('audio');
 
 // VoiceRSS Javascript SDK
@@ -6,7 +7,7 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 
 // Enable/disable button
 function toggleButton() {
-  button.disabled = !button.disabled
+  playButton.disabled = !playButton.disabled
 }
 
 // Passing Joke to VoiceRSS API
@@ -42,7 +43,7 @@ async function getJokes() {
 
     // Text-to-speech
     tellMe(joke);
-    
+
     // Disable button
     toggleButton();
   } catch(error) {
@@ -52,6 +53,8 @@ async function getJokes() {
 }
 
 // Event listeners
-button.addEventListener('click', getJokes);
+playButton.addEventListener('click', getJokes);
 
 audio.addEventListener('ended', toggleButton);
+
+repeatButton.addEventListener('click', () => audio.play())
